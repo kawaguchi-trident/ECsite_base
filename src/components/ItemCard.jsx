@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
+
 export default function ItemCard({ item }) {
   return (
-    <article className="item-card">
+    <Link to={`/items/${item.id}`} className="item-card">
       <div className="item-card__image">
         <img src={item.image} alt={item.name} />
         {item.status === "soldout" && (
@@ -9,6 +11,6 @@ export default function ItemCard({ item }) {
       </div>
       <h3 className="item-card__name">{item.name}</h3>
       <p className="item-card__price">¥{item.price.toLocaleString()}</p>
-    </article>
+    </Link>
   );
 }
