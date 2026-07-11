@@ -10,13 +10,53 @@
 3. 新しいリポジトリ名・公開設定を選択して作成
 4. 作成したリポジトリをローカルに clone して開発開始
 
-## 概要
+## セットアップ
 
-- 26年度 React製 ECアプリ雛形
-- フロントエンド実装の土台として利用想定
+```bash
+npm install
+npm run dev
+```
 
-## 技術構成
+`http://localhost:5173` にサンプルデータのままの一覧が表示されれば準備完了です。
 
-- JavaScript
-- CSS
-- HTML
+## ディレクトリ構成
+
+```
+myitems-skeleton/
+├── public/
+│   ├── items.json        ← 差し替え対象
+│   └── images/           ← 写真を配置
+├── src/
+│   ├── App.jsx           ← BrowserRouter + Routes
+│   ├── main.jsx          ← Reactエントリ
+│   ├── index.css         ← CSS変数＋グローバルスタイル
+│   ├── components/
+│   │   ├── Header.jsx    ← ロゴ・ナビ・カートアイコン
+│   │   ├── Footer.jsx    ← SNSリンク・copyright
+│   │   └── ItemCard.jsx  ← 1アイテムの見た目
+│   └── pages/
+│       ├── Home.jsx      ← 一覧＋「more」ボタン
+│       ├── About.jsx     ← ショップ紹介の雛形
+│       ├── Favorites.jsx ← 空（次回実装）
+│       └── Cart.jsx      ← 空（次回実装）
+├── package.json
+└── vite.config.js
+```
+
+## items.json のスキーマ
+
+| キー | 型 | 内容 |
+| --- | --- | --- |
+| `id` | string | 一意なID（`"001"` から連番） |
+| `name` | string | 商品名 |
+| `image` | string | `/images/item-XX.jpg` のパス |
+| `price` | number | 価格（円） |
+| `category` | string | カテゴリ |
+| `description` | string | 一言説明 |
+| `status` | string | `"onsale"` または `"soldout"` |
+
+## カスタマイズポイント
+
+- `src/index.css` の `:root` にあるCSS変数（色・フォント・幅）
+- `src/components/Header.jsx` のショップ名（`Myshop` を書き換え）
+- `src/components/Footer.jsx` のSNSリンク先
