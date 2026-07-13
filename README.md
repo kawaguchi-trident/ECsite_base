@@ -54,6 +54,9 @@ myitems-skeleton/
 | `category` | string | カテゴリ |
 | `description` | string | 一言説明 |
 | `status` | string | `"onsale"` または `"soldout"` |
+| `code` | string | 品番（`"MS-001"` のように自由な形式でOK） |
+| `color` | string | カラー（色のないモノは素材感などでOK） |
+| `size` | string | サイズ（服・靴はS/M/Lやcm、モノは寸法・容量） |
 
 ## カスタマイズポイント
 
